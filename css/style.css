@@ -22,6 +22,20 @@
   padding-top: 100px;
 }
 
+
+.header {
+  /* background-color: #00ABB3; */
+  margin: 0;
+  padding: 25px;
+  background:url(../img/new/samurai_jack_new.jpg) center;
+  background-attachment:local;
+  background-size: 155%;
+  height: 400px;
+  text-align: left;
+  color: white;
+}
+
+
 .c-compare {
   --h: 9;
   --m: 0;
