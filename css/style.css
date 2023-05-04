@@ -3,14 +3,21 @@
   background:url(https://rycossette.github.io/theretronew/img/new/samurai_jack_new.jpg) center;
   background-size:cover;
   background-position: top;
-  margin-bottom: 50px;
-  padding-bottom: 100px;
-  padding-top: 130px;
   height: 400px;
-  text-align: left;
   color: white;
 }
 
+.header {
+  text-align: left;
+  padding-top: 150px;
+  padding-left: 50px;
+  /* padding-bottom: 50px; */
+}
+
+.padding {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 
 .c-compare {
   --h: 9;
@@ -22,6 +29,7 @@
   margin: var(--m) auto;
   width: 90vw;
   position: relative;
+  margin-top: 50px;
   margin-bottom: 10px;
 }
 
@@ -50,7 +58,6 @@
 .c-compare__right {
   clip-path: polygon(100% 0%, var(--value) 0%, var(--value) 100%, 100% 100%);
 }
-
 
 
 
