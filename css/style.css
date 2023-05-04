@@ -16,10 +16,14 @@
 }
 
 .bg-cover {
+  background:url(../img/new/samurai_jack_new.jpg) center;
   background-size: cover !important;
   margin-bottom: 50px;
-  padding-bottom: 50px;
-  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-top: 130px;
+  height: 400px;
+  text-align: left;
+  color: white;
 }
 
 
