@@ -17,8 +17,8 @@
 
 .bg-cover {
   background:url(https://rycossette.github.io/theretronew/img/new/samurai_jack_new.jpg) center;
-  background-size:contain;
-  background-position: bottom;
+  background-size:cover;
+  background-position: top;
   margin-bottom: 50px;
   padding-bottom: 100px;
   padding-top: 130px;
