@@ -7,12 +7,14 @@
 
 body {
   background-color: #e9cab6;
+  font-family: 'DePixel', sans-serif;
 }
 
 .header {
   text-align: left;
   padding-top: 150px;
   padding-left: 50px;
+  /* font-family: '8BIT WONDER', sans-serif; */
 }
 
 .padding {
@@ -24,8 +26,26 @@ body {
   margin-top: 15px;
 }
 
+.accentcolor {
+  color:#0099ff
+}
 
+ul li a:hover {
+  color: #025892 !important;
+}
 
+.logo {
+  font-family: 'serious3b', sans-serif;
+}
+.logo_header {
+  font-family: 'serious3b', sans-serif;
+  font-weight: bold;
+  color:#ffffff
+}
+
+.tagline-color {
+  color:#ffffff
+}
 
 /* modal */
 .modal {
