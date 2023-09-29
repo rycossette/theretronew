@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movies </title>
+  <!-- Comparison Slider CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <!-- <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24"
+          class="d-inline-block align-text-top"> -->
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="games.html">Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="movies.html">TV & Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comics.html">Comics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="books.html">Books</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="bg-cover">
+      <div class="header">
+        <h1 class="display-5 font-weight-bold">the retro new</h1>
+        <p class="font-italic mb-0">Making old things new again</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="container spacing">
+    <div class="row">
+      <!-- Thumbnails -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <img src="img/old/samurai_jack_old.jpg" alt="Thumbnail" class="img-fluid"
+          onclick="openModal('img/new/samurai_jack_new.jpg', 'img/old/samurai_jack_old.jpg', 0)" />
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <img src="img/old/ssw_old.jpg" alt="Thumbnail" class="img-fluid"
+          onclick="openModal('img/new/ssw_new.jpg', 'img/old/ssw_old.jpg', 1)" />
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <img src="img/old/tsomi_old.jpg" alt="Thumbnail" class="img-fluid"
+          onclick="openModal('img/new/tsomi_new.jpg', 'img/old/tsomi_old.jpg', 2)" />
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <img src="img/old/ewj_old.jpg" alt="Thumbnail" class="img-fluid"
+          onclick="openModal('img/new/ewj_new.jpg', 'img/old/ewj_old.jpg', 3)" />
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="row-cols-1">
+    <div class="column thumbnail-grid">
+      <img src="img/old/samurai_jack_old.jpg" alt="Thumbnail"
+        onclick="openModal('img/new/samurai_jack_new.jpg', 'img/old/samurai_jack_old.jpg', 0)" />
+      <img src="img/old/ssw_old.jpg" alt="Thumbnail"
+        onclick="openModal('img/new/ssw_new.jpg', 'img/old/ssw_old.jpg', 1)" />
+      <img src="img/old/tsomi_old.jpg" alt="Thumbnail"
+        onclick="openModal('img/new/tsomi_new.jpg', 'img/old/tsomi_old.jpg', 2)" />
+      <img src="img/old/ewj_old.jpg" alt="Thumbnail"
+        onclick="openModal('img/new/ewj_new.jpg', 'img/old/ewj_old.jpg', 3)" />
+    </div>
+  </div> -->
+
+  <!-- Modal Structure -->
+  <div class="modal" id="myModal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <!-- <span class="arrow left" onclick="previousImage()">&#10094;</span>
+    <span class="arrow right" onclick="nextImage()">&#10095;</span> -->
+    <div class="modal-content">
+
+      <!-- The content of your .c-compare will be moved here when a thumbnail is clicked -->
+    </div>
+  </div>
+
+  <script>
+    let currentImageIndex = 0;
+    
+    function setClipPath(compareDiv) {
+        const rangeInput = compareDiv.querySelector('.c-rng.c-compare__range');
+        const newImg = compareDiv.querySelector('.c-compare__left');
+        const oldImg = compareDiv.querySelector('.c-compare__right');
+        const value = `${rangeInput.value}%`;
+        newImg.style.clipPath = `polygon(0% 0%, ${value} 0%, ${value} 100%, 0% 100%)`;
+        oldImg.style.clipPath = `polygon(100% 0%, ${value} 0%, ${value} 100%, 100% 100%)`;
+    }
+    
+    function openModal(newImgSrc, oldImgSrc, index) {
+    console.log("openModal function triggered");
+    console.log("New Image Source:", newImgSrc);
+    console.log("Old Image Source:", oldImgSrc);
+
+    const modal = document.getElementById('myModal');
+    const modalContent = document.querySelector('.modal-content');
+
+    // Create the comparison div
+    const compareDiv = document.createElement('div');
+    compareDiv.className = 'c-compare';
+    compareDiv.style.setProperty('--value', '50%');
+
+    // Create the new image
+    const newImg = document.createElement('img');
+    newImg.className = 'c-compare__left';
+    newImg.src = newImgSrc;
+    newImg.alt = 'New';
+    compareDiv.appendChild(newImg);
+
+    // Create the old image
+    const oldImg = document.createElement('img');
+    oldImg.className = 'c-compare__right';
+    oldImg.src = oldImgSrc;
+    oldImg.alt = 'Original';
+    compareDiv.appendChild(oldImg);
+
+    // Create the range input
+    const rangeInput = document.createElement('input');
+    rangeInput.type = 'range';
+    rangeInput.className = 'c-rng c-compare__range';
+    rangeInput.min = '0';
+    rangeInput.max = '100';
+    rangeInput.value = '50';
+
+    // Add the oninput function for the range input
+    rangeInput.oninput = function () {
+        compareDiv.style.setProperty('--value', `${this.value}%`);
+    };
+
+    compareDiv.appendChild(rangeInput);
+
+    // Append the comparison div to the modal content
+    modalContent.innerHTML = '';
+    modalContent.appendChild(compareDiv);
+
+    // Manually trigger the oninput event to set the initial state
+    rangeInput.dispatchEvent(new Event('input'));
+
+    modal.style.display = "block";
+    currentImageIndex = index;
+
+    // Close modal when clicking on the modal's background
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+
+    // Stop event propagation for the modal's content
+    modalContent.onclick = function(event) {
+        event.stopPropagation();
+    };
+}
+f
+    
+    function closeModal() {
+        const modal = document.getElementById('myModal');
+        modal.style.display = "none";
+    }
+    
+    function previousImage() {
+        if (currentImageIndex > 0) {
+            currentImageIndex--;
+            const newImgSrc = getRelativePath(document.querySelectorAll('.thumbnail-grid img')[currentImageIndex].src);
+            const oldImgSrc = newImgSrc.replace('/new/', '/old/');
+            openModal(newImgSrc, oldImgSrc, currentImageIndex);
+        }
+    }
+    
+    function nextImage() {
+        if (currentImageIndex < document.querySelectorAll('.thumbnail-grid img').length - 1) {
+            currentImageIndex++;
+            const newImgSrc = getRelativePath(document.querySelectorAll('.thumbnail-grid img')[currentImageIndex].src);
+            const oldImgSrc = newImgSrc.replace('/new/', '/old/');
+            openModal(newImgSrc, oldImgSrc, currentImageIndex);
+        }
+    }
+    
+    function getRelativePath(absoluteUrl) {
+        const a = document.createElement('a');
+        a.href = absoluteUrl;
+        return a.pathname.startsWith('/') ? a.pathname.substring(1) : a.pathname;
+    }
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const compareDivs = document.querySelectorAll('.c-compare');
+        compareDivs.forEach(div => div.style.setProperty('--value', '50%'));
+    });
+    
+    document.addEventListener('keydown', function (event) {
+        if (event.key === "ArrowLeft") {
+            previousImage();
+        } else if (event.key === "ArrowRight") {
+            nextImage();
+        }
+    });
+    </script>
+    
+
+
+
+
+
+</body>
+
+</html>
