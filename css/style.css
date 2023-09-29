@@ -2,9 +2,12 @@
   background: url(https://raw.githubusercontent.com/rycossette/theretronew/main/img/misc/cover_b.jpg) no-repeat left top;
   background-size:cover;
   height: 400px;
-  color: white;
+  color:#e9cab6;
 }
 
+body {
+  background-color: #e9cab6;
+}
 
 .header {
   text-align: left;
@@ -36,9 +39,6 @@
   z-index: 1000;
   overflow: hidden;
 }
-
-/* ... rest of your CSS remains unchanged ... */
-
 
 .modal-content {
   display: flex;
