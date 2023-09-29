@@ -1,10 +1,10 @@
 .bg-cover {
-  background: url(https://rycossette.github.io/theretronew/img/misc/cover.jpg) center;
-  background-size: cover;
-  background-position: top;
+  background: url(https://raw.githubusercontent.com/rycossette/theretronew/main/img/misc/cover.jpg) no-repeat left top;
+  background-size:cover;
   height: 400px;
   color: white;
 }
+
 
 .header {
   text-align: left;
